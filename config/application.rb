@@ -10,6 +10,9 @@ module CpservmIntegration
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    custom_load_paths = %w[lib].map { |path| config.root.join(path).to_s }
+    config.autoload_paths += custom_load_paths
+    config.eager_load_paths += custom_load_paths
 
     # Configuration for the application, engines, and railties goes here.
     #
