@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Cpservm
-  class Connection
-    def self.call
+  class ConnectionBuilder
+    def self.build
       Faraday.new(
-        url: 'https://cpservm.com'
+        url: 'https://cpservm.com/gateway/'
       )
     end
   end
