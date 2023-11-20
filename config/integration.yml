@@ -1,0 +1,14 @@
+defaults: &defaults
+  client_id:
+    - teamstatistic-49524b54-3c7d-4884-ad99-6fe357182264
+  secret_id:
+    - c%t&LLtR8eGd1yRa*jJ3UaS!kCpkZ0mszzgoBr89#R4KyH@ANQ0fNYOUxO5itzm1
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
