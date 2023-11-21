@@ -9,10 +9,17 @@ module Cpservm
         connection.public_send(action, 'teamstatistic/api/season/info') do |req|
           req.headers["Authorization"] = "Bearer #{authorization.access_token}",
           req.body = {
-            id:   @id,
-            lang: @lang
+            id:  @id,
+            lng: @lng
           }
         end
+      end
+
+      def mock_request
+        file = File.open './lib/cpservm/seasons/mock_files/info.json'
+        data = JSON.load file
+        result = data['data'].select { |item| item['id'] == @id && item['lng'] == @lng }
+        result.last['body']
       end
     end
   end

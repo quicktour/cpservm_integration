@@ -10,6 +10,11 @@ module Cpservm
           req.headers["Authorization"] = "Bearer #{authorization.access_token}"
         end
       end
+
+      def mock_request
+        file = File.open './lib/cpservm/seasons/mock_files/list.json'
+        JSON.load file
+      end
     end
   end
 end
