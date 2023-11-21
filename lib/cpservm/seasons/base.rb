@@ -4,13 +4,18 @@ module Cpservm
   module Seasons
     class Base < BaseConnection
 
-      def self.call()
-        new().call()
+      def self.call(id = nil, lang = nil)
+        new(id = nil, lang = nil).call()
+      end
+
+      def initialize(id, lang)
+        @id = id
+        @lang = lang
       end
 
       def call()
         authorization.reload if request(:head).status == 401
-        binding.break
+
         JSON.parse(request(:get).body)
       end
     end
